@@ -6,7 +6,7 @@ import sync.*;
 PNetwork net;
 import java.util.Arrays;
 
-
+ 
 
 
 int networkSize = 10;
@@ -659,6 +659,13 @@ float squaredRootOccurrence(float dVal, int numberOfoccurrence) { // return the 
               size(600, 600, P3D);
                frameRatio = 30;///30/5=> 108/5 BPM 21.6  or 114/5 = 22.8
                 frameRate(frameRatio); //57 frame pour 1 tour. // joure avec G et g et cf le p
+
+                cam = new PeasyCam(this, 2000);
+                cameraZ = (h / 2.0) / tan(radians(fov) / 2.0);
+                zNear = cameraZ / 10.0;
+                zFar = cameraZ * 10.0;
+                println("CamZ: " + cameraZ);
+                rectMode(CENTER);
                 
               
                 
@@ -666,7 +673,7 @@ float squaredRootOccurrence(float dVal, int numberOfoccurrence) { // return the 
                 
                 
                 
-                
+        
                 sampler = new Sampler();
                 
                 
@@ -959,12 +966,7 @@ float squaredRootOccurrence(float dVal, int numberOfoccurrence) { // return the 
                 
                 //***************************************** SET 3D CAM 
                 
-                cam = new PeasyCam(this, 2000);
-                cameraZ = (h / 2.0) / tan(radians(fov) / 2.0);
-                zNear = cameraZ / 10.0;
-                zFar = cameraZ * 10.0;
-                println("CamZ: " + cameraZ);
-                rectMode(CENTER);
+     
                 
                 //***************************************** END 3D CAM  
                 
