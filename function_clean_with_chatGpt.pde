@@ -311,7 +311,7 @@ void handleInternalSamplingMode(){
    }
 
 void computeAngularTimeSpeed(){
-   if (running == false) return;
+   if (running_Timer == false) return;
 
   int m = millis();
   timeFrame += float(m - lastMillis) * 0.001;
@@ -402,12 +402,12 @@ void differentFunction(){
    }
 
 void displayOscillatorSpheres() {
-  translate(width/2, -height/2, -1000);// To set the center of the perspective
-  rotate(-HALF_PI ); //TO change the beginning of the 0 (cercle trigo) and the cohesion point to - HALF_PI 
+   translate(width/2, -height/2, -1000);// To set the center of the perspective
+   rotate(-HALF_PI ); //TO change the beginning of the 0 (cercle trigo) and the cohesion point to - HALF_PI 
 
   // Draw  spheres corresponding to the phase of each oscillator
   colorMode(RGB, 255, 255, 255);
-
+   rotate(HALF_PI ); 
  }
 void trigFollowSignalSampled() {
 

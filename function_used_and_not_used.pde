@@ -396,12 +396,19 @@ void frameratio() {
   }
 } 
 void keyPressed() {
-  
-  setMovement(key, true);
-  
- if (keyCode == ALT){ // .. in Keypressed
+  // to modulate Knob with control controlIP5knob
+  switch(keyCode) { 
+  case(DOWN): valueOfKnobA-=5; myKnobA.setValue( valueOfKnobA);break;
+  case(UP):   valueOfKnobA+=5; myKnobA.setValue( valueOfKnobA);break;
+  }
+  //------
+
+  // set movement with good key and good keyCode
+   setMovement(key, true); 
+   if (keyCode == ALT){ // .. in Keypressed
     moveKeys[8]=true;
    }
+  //------
   
  
   if (key == '@'|| keyCode == ESC) {
@@ -414,7 +421,7 @@ void keyPressed() {
   frameratio();
 
   if ((key == '!'  ) ) {  
-    text ("STOP MOVEMENT AND TIMER: and BPM ;) when restart slowly", 400, -400); //     // Toggle between sketch paused - running
+    text ("STOP MOVEMENT AND TIMER: and BPM ;) when restart slowly", 400, -400); //     // Toggle between sketch paused - running_Timer
     formerKey = '!'; // to prepare the next start. With the touch A you can trig play in live
 
     startStop= 3; 
@@ -437,7 +444,7 @@ void keyPressed() {
 
     //      encoderReceiveUSBport101.write(dataMarkedToDue ); 
 
-    running = false;
+    running_Timer = false;
 
 
     if (isLooping()) {
@@ -450,7 +457,7 @@ void keyPressed() {
  // else if (keyCode == BACKSPACE) {
    else if (key == '!')  {
     /*
-      running = true; // TRIG the TIMER
+      running_Timer = true; // TRIG the TIMER
      int m = millis();
      lastMillis = m;
      
@@ -473,7 +480,7 @@ void keyPressed() {
       //   frameRate(frameRatio);
     }
 
-    running = true; // TRIG the TIMER
+    running_Timer = true; // TRIG the TIMER
     int m = millis();
     lastMillis = m;
 

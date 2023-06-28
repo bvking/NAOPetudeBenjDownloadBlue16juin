@@ -1,3 +1,5 @@
+String portsUSBfrom3;
+
 void sendPositionToBigMachine(){
 
      for (int i = 0; i < networkSize; i++) 
